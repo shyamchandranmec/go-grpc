@@ -1,10 +1,11 @@
 package main
 
 import (
+	"log"
+
 	"github.com/shyamchandranmec/go-grpc/greet/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"log"
 )
 
 var addr = "0.0.0.0:50051"
@@ -18,6 +19,7 @@ func main() {
 	defer conn.Close()
 	c := proto.NewGreetServiceClient(conn)
 	//doGreet(c)
-	doGreetManyTimes(c)
-	
+	//doGreetManyTimes(c)
+	doLongGreet(c)
+
 }

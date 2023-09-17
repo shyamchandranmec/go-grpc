@@ -3,6 +3,9 @@ package  calculator;
 
 option go_package = "github.com/shyamchandranmec/go-grpc/calculator/proto";
 
+import "primes.proto";
+import "average.proto";
+
 message CalculatorRequest {
   uint32 num1 = 1;
   uint32 num2 = 2;
@@ -14,4 +17,6 @@ message CalculatorResponse {
 
 service CalculatorService {
   rpc Sum(CalculatorRequest)returns (CalculatorResponse);
+  rpc Primes(PrimeRequest) returns (stream PrimeResponse);
+  rpc Avg(stream AvgRequest) returns (AvgResponse);
 }
